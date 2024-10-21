@@ -1,137 +1,171 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arabic Learning Website</title>
+    <title>Learn Arabic - Duolingo Style</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            direction: rtl;
-            background-color: #f4f4f4;
-            color: #333;
             margin: 0;
             padding: 0;
+            background-color: #f0f0f5;
         }
-        header {
-            background-color: #4CAF50;
+
+        .header {
+            background-color: #4B0082; /* Dark Purple */
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 2em;
+        }
+
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
             color: white;
             text-align: center;
-            padding: 1rem 0;
-        }
-        nav {
-            margin: 10px 0;
-        }
-        nav a {
-            margin: 0 15px;
-            color: white;
+            padding: 14px 20px;
             text-decoration: none;
         }
-        section {
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 30px 0;
+        }
+
+        .lessons, .quizzes, .progress {
+            background-color: white;
             padding: 20px;
-            background-color: #fff;
-            margin: 10px;
-            border-radius: 5px;
-        }
-        footer {
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
             text-align: center;
-            padding: 1rem 0;
-            background-color: #4CAF50;
-            color: white;
         }
-        .lang-button {
+
+        .lesson-card {
+            display: inline-block;
             margin: 10px;
-            padding: 10px 20px;
-            background-color: #4CAF50;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #e6e6fa;
+            transition: transform 0.3s ease;
+        }
+
+        .lesson-card:hover {
+            transform: scale(1.05);
+        }
+
+        .lesson-card h3 {
+            margin: 0;
+            color: #4B0082; /* Dark Purple */
+        }
+
+        .progress {
+            width: 80%;
+            height: 25px;
+            background-color: #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 50%; /* Example progress percentage */
+            background-color: #4B0082;
+            border-radius: 10px;
+            text-align: center;
             color: white;
-            border: none;
-            cursor: pointer;
+            line-height: 25px;
+        }
+
+        footer {
+            background-color: #4B0082;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1 id="site-title-ar">مرحبًا بكم في موقع تعلم اللغة العربية</h1>
-    <h1 id="site-title-en" style="display:none;">Welcome to the Arabic Learning Website</h1>
-    <button class="lang-button" onclick="toggleLanguage()">اللغة الإنجليزية</button>
-    <nav>
-        <a href="#courses" id="courses-link-ar">الدورات</a>
-        <a href="#resources" id="resources-link-ar">الموارد</a>
-        <a href="#contact" id="contact-link-ar">اتصل بنا</a>
-        <a href="#courses" id="courses-link-en" style="display:none;">Courses</a>
-        <a href="#resources" id="resources-link-en" style="display:none;">Resources</a>
-        <a href="#contact" id="contact-link-en" style="display:none;">Contact Us</a>
-    </nav>
-</header>
+<div class="header">
+    <h1>Learn Arabic</h1>
+    <p>Your path to mastering Arabic starts here!</p>
+</div>
 
-<section id="courses">
-    <h2 id="courses-title-ar">الدورات</h2>
-    <h2 id="courses-title-en" style="display:none;">Courses</h2>
-    <ul>
-        <li id="course-1-ar">دورة اللغة العربية للمبتدئين</li>
-        <li id="course-1-en" style="display:none;">Beginner Arabic Course</li>
-        <li id="course-2-ar">دورة قواعد اللغة العربية</li>
-        <li id="course-2-en" style="display:none;">Arabic Grammar Course</li>
-        <li id="course-3-ar">دورة المحادثة باللغة العربية</li>
-        <li id="course-3-en" style="display:none;">Arabic Conversation Course</li>
-    </ul>
-</section>
+<div class="navbar">
+    <a href="#lessons">Lessons</a>
+    <a href="#quizzes">Quizzes</a>
+    <a href="#progress">Your Progress</a>
+    <a href="#contact">Contact Us</a>
+</div>
 
-<section id="resources">
-    <h2 id="resources-title-ar">الموارد</h2>
-    <h2 id="resources-title-en" style="display:none;">Resources</h2>
-    <ul>
-        <li id="resource-1-ar"><a href="#">كتب تعلم اللغة العربية</a></li>
-        <li id="resource-1-en" style="display:none;"><a href="#">Books for Learning Arabic</a></li>
-        <li id="resource-2-ar"><a href="#">قنوات يوتيوب لتعلم العربية</a></li>
-        <li id="resource-2-en" style="display:none;"><a href="#">YouTube Channels for Learning Arabic</a></li>
-        <li id="resource-3-ar"><a href="#">مواقع مفيدة</a></li>
-        <li id="resource-3-en" style="display:none;"><a href="#">Useful Websites</a></li>
-    </ul>
-</section>
+<div class="container">
 
-<section id="contact">
-    <h2 id="contact-title-ar">اتصل بنا</h2>
-    <h2 id="contact-title-en" style="display:none;">Contact Us</h2>
-    <p id="contact-info-ar">لديك أسئلة؟ اتصل بنا على:</p>
-    <p id="contact-info-en" style="display:none;">Have questions? Contact us at:</p>
-    <p>Email: info@example.com</p>
-</section>
+    <!-- Lessons Section -->
+    <div id="lessons" class="lessons">
+        <h2>Lessons</h2>
+        <div class="lesson-card">
+            <h3>Lesson 1: Arabic Alphabet</h3>
+            <p>Learn the fundamentals of the Arabic alphabet.</p>
+        </div>
+        <div class="lesson-card">
+            <h3>Lesson 2: Basic Greetings</h3>
+            <p>Master simple greetings like "Hello" and "Goodbye".</p>
+        </div>
+        <div class="lesson-card">
+            <h3>Lesson 3: Numbers in Arabic</h3>
+            <p>Understand how to count in Arabic.</p>
+        </div>
+        <div class="lesson-card">
+            <h3>Lesson 4: Common Phrases</h3>
+            <p>Learn useful everyday phrases.</p>
+        </div>
+    </div>
+
+    <!-- Quizzes Section -->
+    <div id="quizzes" class="quizzes">
+        <h2>Quizzes</h2>
+        <p>Test your knowledge with our interactive quizzes!</p>
+        <div class="lesson-card">
+            <h3>Quiz 1: Arabic Alphabet</h3>
+            <p>Take the quiz on the Arabic alphabet.</p>
+        </div>
+        <div class="lesson-card">
+            <h3>Quiz 2: Basic Greetings</h3>
+            <p>Check your understanding of common Arabic greetings.</p>
+        </div>
+    </div>
+
+    <!-- Progress Section -->
+    <div id="progress" class="progress">
+        <h2>Your Progress</h2>
+        <div class="progress-bar">50% Complete</div>
+    </div>
+
+</div>
 
 <footer>
-    <p id="footer-ar">&copy; 2024 موقع تعلم اللغة العربية. جميع الحقوق محفوظة.</p>
-    <p id="footer-en" style="display:none;">&copy; 2024 Arabic Learning Website. All rights reserved.</p>
+    <p>Contact us at: schoolkids02020@gmail.com</p>
 </footer>
-
-<script>
-    let isArabic = true;
-
-    function toggleLanguage() {
-        isArabic = !isArabic;
-
-        // Toggle visibility of Arabic and English elements
-        const elementsToShow = isArabic ? 
-            ['ar'] : ['en'];
-        const elementsToHide = isArabic ? 
-            ['en'] : ['ar'];
-
-        elementsToShow.forEach(lang => {
-            document.querySelectorAll(`[id$='-${lang}']`).forEach(el => {
-                el.style.display = 'block';
-            });
-        });
-        
-        elementsToHide.forEach(lang => {
-            document.querySelectorAll(`[id$='-${lang}']`).forEach(el => {
-                el.style.display = 'none';
-            });
-        });
-
-        // Change button text
-        document.querySelector('.lang-button').textContent = isArabic ? 'اللغة الإنجليزية' : 'Arabic Language';
-    }
-</script>
 
 </body>
 </html>
