@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arabic Learning Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+        nav {
+            margin: 10px 0;
+        }
+        nav a {
+            margin: 0 15px;
+            color: white;
+            text-decoration: none;
+        }
+        section {
+            padding: 20px;
+            background-color: #fff;
+            margin: 10px;
+            border-radius: 5px;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background-color: #4CAF50;
+            color: white;
+        }
+        .lang-button {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1 id="site-title-ar">مرحبًا بكم في موقع تعلم اللغة العربية</h1>
+    <h1 id="site-title-en" style="display:none;">Welcome to the Arabic Learning Website</h1>
+    <button class="lang-button" onclick="toggleLanguage()">اللغة الإنجليزية</button>
+    <nav>
+        <a href="#courses" id="courses-link-ar">الدورات</a>
+        <a href="#resources" id="resources-link-ar">الموارد</a>
+        <a href="#contact" id="contact-link-ar">اتصل بنا</a>
+        <a href="#courses" id="courses-link-en" style="display:none;">Courses</a>
+        <a href="#resources" id="resources-link-en" style="display:none;">Resources</a>
+        <a href="#contact" id="contact-link-en" style="display:none;">Contact Us</a>
+    </nav>
+</header>
+
+<section id="courses">
+    <h2 id="courses-title-ar">الدورات</h2>
+    <h2 id="courses-title-en" style="display:none;">Courses</h2>
+    <ul>
+        <li id="course-1-ar">دورة اللغة العربية للمبتدئين</li>
+        <li id="course-1-en" style="display:none;">Beginner Arabic Course</li>
+        <li id="course-2-ar">دورة قواعد اللغة العربية</li>
+        <li id="course-2-en" style="display:none;">Arabic Grammar Course</li>
+        <li id="course-3-ar">دورة المحادثة باللغة العربية</li>
+        <li id="course-3-en" style="display:none;">Arabic Conversation Course</li>
+    </ul>
+</section>
+
+<section id="resources">
+    <h2 id="resources-title-ar">الموارد</h2>
+    <h2 id="resources-title-en" style="display:none;">Resources</h2>
+    <ul>
+        <li id="resource-1-ar"><a href="#">كتب تعلم اللغة العربية</a></li>
+        <li id="resource-1-en" style="display:none;"><a href="#">Books for Learning Arabic</a></li>
+        <li id="resource-2-ar"><a href="#">قنوات يوتيوب لتعلم العربية</a></li>
+        <li id="resource-2-en" style="display:none;"><a href="#">YouTube Channels for Learning Arabic</a></li>
+        <li id="resource-3-ar"><a href="#">مواقع مفيدة</a></li>
+        <li id="resource-3-en" style="display:none;"><a href="#">Useful Websites</a></li>
+    </ul>
+</section>
+
+<section id="contact">
+    <h2 id="contact-title-ar">اتصل بنا</h2>
+    <h2 id="contact-title-en" style="display:none;">Contact Us</h2>
+    <p id="contact-info-ar">لديك أسئلة؟ اتصل بنا على:</p>
+    <p id="contact-info-en" style="display:none;">Have questions? Contact us at:</p>
+    <p>Email: info@example.com</p>
+</section>
+
+<footer>
+    <p id="footer-ar">&copy; 2024 موقع تعلم اللغة العربية. جميع الحقوق محفوظة.</p>
+    <p id="footer-en" style="display:none;">&copy; 2024 Arabic Learning Website. All rights reserved.</p>
+</footer>
+
+<script>
+    let isArabic = true;
+
+    function toggleLanguage() {
+        isArabic = !isArabic;
+
+        // Toggle visibility of Arabic and English elements
+        const elementsToShow = isArabic ? 
+            ['ar'] : ['en'];
+        const elementsToHide = isArabic ? 
+            ['en'] : ['ar'];
+
+        elementsToShow.forEach(lang => {
+            document.querySelectorAll(`[id$='-${lang}']`).forEach(el => {
+                el.style.display = 'block';
+            });
+        });
+        
+        elementsToHide.forEach(lang => {
+            document.querySelectorAll(`[id$='-${lang}']`).forEach(el => {
+                el.style.display = 'none';
+            });
+        });
+
+        // Change button text
+        document.querySelector('.lang-button').textContent = isArabic ? 'اللغة الإنجليزية' : 'Arabic Language';
+    }
+</script>
+
+</body>
+</html>
