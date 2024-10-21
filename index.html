@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learn Arabic - Duolingo Style</title>
+    <title>Learn Arabic - All Lessons</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f0f0f5;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f5;
         }
 
         .header {
@@ -23,13 +23,12 @@
         .navbar {
             background-color: #333;
             overflow: hidden;
+            text-align: center;
         }
 
         .navbar a {
-            float: left;
-            display: block;
+            display: inline-block;
             color: white;
-            text-align: center;
             padding: 14px 20px;
             text-decoration: none;
         }
@@ -40,57 +39,34 @@
         }
 
         .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 30px 0;
+            padding: 20px;
         }
 
-        .lessons, .quizzes, .progress {
-            background-color: white;
+        .lesson-section {
+            margin-bottom: 40px;
             padding: 20px;
-            margin: 20px;
+            background-color: white;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 80%;
-            text-align: center;
         }
 
-        .lesson-card {
-            display: inline-block;
-            margin: 10px;
-            padding: 20px;
-            border-radius: 10px;
-            background-color: #e6e6fa;
-            transition: transform 0.3s ease;
+        .lesson-section h2 {
+            color: #4B0082;
         }
 
-        .lesson-card:hover {
-            transform: scale(1.05);
+        .lesson-content ul {
+            list-style-type: none;
+            padding: 0;
         }
 
-        .lesson-card h3 {
-            margin: 0;
-            color: #4B0082; /* Dark Purple */
+        .lesson-content li {
+            margin: 10px 0;
+            font-size: 1.2em;
         }
 
-        .progress {
-            width: 80%;
-            height: 25px;
-            background-color: #ccc;
-            border-radius: 10px;
-            overflow: hidden;
-            margin-bottom: 20px;
-        }
-
-        .progress-bar {
-            height: 100%;
-            width: 50%; /* Example progress percentage */
-            background-color: #4B0082;
-            border-radius: 10px;
-            text-align: center;
-            color: white;
-            line-height: 25px;
+        .lesson-content audio {
+            margin-top: 10px;
+            display: block;
         }
 
         footer {
@@ -102,70 +78,111 @@
             width: 100%;
             bottom: 0;
         }
+
+        /* Back to top link */
+        .back-to-top {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-to-top a {
+            padding: 10px;
+            background-color: #4B0082;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .back-to-top a:hover {
+            background-color: #800080;
+        }
     </style>
 </head>
 <body>
 
-<div class="header">
-    <h1>Learn Arabic</h1>
-    <p>Your path to mastering Arabic starts here!</p>
-</div>
+    <div class="header">
+        <h1>Learn Arabic</h1>
+        <p>Interactive lessons on the Arabic language</p>
+    </div>
 
-<div class="navbar">
-    <a href="#lessons">Lessons</a>
-    <a href="#quizzes">Quizzes</a>
-    <a href="#progress">Your Progress</a>
-    <a href="#contact">Contact Us</a>
-</div>
+    <div class="navbar">
+        <a href="#alphabet">Arabic Alphabet</a>
+        <a href="#grammar">Grammar Lessons</a>
+        <a href="#sentences">Basic Sentences</a>
+        <a href="#contact">Contact Us</a>
+    </div>
 
-<div class="container">
+    <div class="container">
+        <!-- Arabic Alphabet Section -->
+        <div id="alphabet" class="lesson-section">
+            <h2>Lesson 1: Arabic Alphabet</h2>
+            <p>Learn the Arabic letters with pronunciation:</p>
+            <div class="lesson-content">
+                <ul>
+                    <li><strong>ا</strong> (Alif) - Pronunciation: "A" <br><audio controls><source src="audio/alif.mp3" type="audio/mp3">Your browser does not support the audio element.</audio></li>
+                    <li><strong>ب</strong> (Baa) - Pronunciation: "B" <br><audio controls><source src="audio/baa.mp3" type="audio/mp3">Your browser does not support the audio element.</audio></li>
+                    <li><strong>ت</strong> (Taa) - Pronunciation: "T" <br><audio controls><source src="audio/taa.mp3" type="audio/mp3">Your browser does not support the audio element.</audio></li>
+                    <li><strong>ث</strong> (Thaa) - Pronunciation: "Th" <br><audio controls><source src="audio/thaa.mp3" type="audio/mp3">Your browser does not support the audio element.</audio></li>
+                    <li><strong>ج</strong> (Jeem) - Pronunciation: "J" <br><audio controls><source src="audio/jeem.mp3" type="audio/mp3">Your browser does not support the audio element.</audio></li>
+                    <!-- Add more letters here -->
+                </ul>
+            </div>
+        </div>
 
-    <!-- Lessons Section -->
-    <div id="lessons" class="lessons">
-        <h2>Lessons</h2>
-        <div class="lesson-card">
-            <h3>Lesson 1: Arabic Alphabet</h3>
-            <p>Learn the fundamentals of the Arabic alphabet.</p>
+        <!-- Arabic Grammar Section -->
+        <div id="grammar" class="lesson-section">
+            <h2>Lesson 2: Basic Arabic Grammar</h2>
+            <p>Get familiar with basic grammatical rules in Arabic:</p>
+            <div class="lesson-content">
+                <ul>
+                    <li><strong>Nouns and Gender</strong> - Arabic nouns have gender (masculine and feminine). For example: 
+                        <ul>
+                            <li><strong>Teacher</strong>: <em>Muʿallim</em> (مُعَلِّم) [male], <em>Muʿallimah</em> (مُعَلِّمَة) [female]</li>
+                            <li><strong>Student</strong>: <em>Talib</em> (طَالِب) [male], <em>Talibah</em> (طَالِبَة) [female]</li>
+                        </ul>
+                    </li>
+                    <li><strong>Definite Article</strong> - Arabic uses the definite article "ال" (al-) to indicate "the." For example:
+                        <ul>
+                            <li>كتاب (kitab) means "book", while الكتاب (al-kitab) means "the book".</li>
+                        </ul>
+                    </li>
+                    <li><strong>Verb Conjugation</strong> - Arabic verbs are conjugated based on tense and subject. For example:
+                        <ul>
+                            <li><strong>He writes</strong>: هو يكتب (huwa yaktub)</li>
+                            <li><strong>She writes</strong>: هي تكتب (hiya taktub)</li>
+                            <li><strong>I write</strong>: أنا أكتب (ana aktub)</li>
+                        </ul>
+                    </li>
+                    <!-- Add more grammar rules here -->
+                </ul>
+            </div>
         </div>
-        <div class="lesson-card">
-            <h3>Lesson 2: Basic Greetings</h3>
-            <p>Master simple greetings like "Hello" and "Goodbye".</p>
+
+        <!-- Basic Sentences Section -->
+        <div id="sentences" class="lesson-section">
+            <h2>Lesson 3: Basic Sentences</h2>
+            <p>Here are some common sentences in Arabic with pronunciation:</p>
+            <div class="lesson-content">
+                <ul>
+                    <li><strong>Hello</strong> - السلام عليكم (As-salamu alaykum) <br><audio controls><source src="audio/salam.mp3" type="audio/mp3">Your browser does not support the audio element.</audio></li>
+                    <li><strong>How are you?</strong> - كيف حالك؟ (Kayfa haluka [male] / Kayfa haluki [female]) <br><audio controls><source src="audio/howareyou.mp3" type="audio/mp3">Your browser does not support the audio element.</audio></li>
+                    <li><strong>Thank you</strong> - شكراً (Shukran) <br><audio controls><source src="audio/thankyou.mp3" type="audio/mp3">Your browser does not support the audio element.</audio></li>
+                    <li><strong>Yes</strong> - نعم (Na'am) <br><audio controls><source src="audio/yes.mp3" type="audio/mp3">Your browser does not support the audio element.</audio></li>
+                    <li><strong>No</strong> - لا (La) <br><audio controls><source src="audio/no.mp3" type="audio/mp3">Your browser does not support the audio element.</audio></li>
+                    <!-- Add more sentences here -->
+                </ul>
+            </div>
         </div>
-        <div class="lesson-card">
-            <h3>Lesson 3: Numbers in Arabic</h3>
-            <p>Understand how to count in Arabic.</p>
-        </div>
-        <div class="lesson-card">
-            <h3>Lesson 4: Common Phrases</h3>
-            <p>Learn useful everyday phrases.</p>
+
+        <!-- Back to Top -->
+        <div class="back-to-top">
+            <a href="#">Back to Top</a>
         </div>
     </div>
 
-    <!-- Quizzes Section -->
-    <div id="quizzes" class="quizzes">
-        <h2>Quizzes</h2>
-        <p>Test your knowledge with our interactive quizzes!</p>
-        <div class="lesson-card">
-            <h3>Quiz 1: Arabic Alphabet</h3>
-            <p>Take the quiz on the Arabic alphabet.</p>
-        </div>
-        <div class="lesson-card">
-            <h3>Quiz 2: Basic Greetings</h3>
-            <p>Check your understanding of common Arabic greetings.</p>
-        </div>
-    </div>
-
-    <!-- Progress Section -->
-    <div id="progress" class="progress">
-        <h2>Your Progress</h2>
-        <div class="progress-bar">50% Complete</div>
-    </div>
-
-</div>
-
-<footer>
-    <p>Contact us at: schoolkids02020@gmail.com</p>
-</footer>
+    <footer id="contact">
+        <p>Contact us at: schoolkids02020@gmail.com</p>
+    </footer>
 
 </body>
 </html>
